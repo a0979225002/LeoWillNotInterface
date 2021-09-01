@@ -12,26 +12,22 @@ public class DFS {
         CurrencyFactory<IEditorSetting> currencyFactory2 = new CurrencyFactory();
 
         currencyFactory.builder(
-                new AppenderSetting(
-                        null,
-                        null,
-                        null,
-                        "拉拉拉阿")
-                ,"A"
+                new AppenderSetting()
+                        .setCopyBy(null)
+                        .setNewCurrency(null)
+                        .setRatio(null)
+                        .setPath("./Appender")
         ).execution();
 
 
         currencyFactory2.builder(
-                new EditorSetting(
-                        null,
-                        null,
-                        null,
-                        null,
-                        0,
-                        "拉拉2")
-                ,"B"
+                new EditorSetting()
+                        .setAddOrSub(null)
+                        .setDiv(null)
+                        .setMulti(null)
+                        .setTargetCurrency(null)
+                        .setMathType(100)
+                        .setPath("./Editor")
         ).execution();
-
     }
-
 }

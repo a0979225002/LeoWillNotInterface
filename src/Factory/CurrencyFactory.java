@@ -9,18 +9,13 @@ import ICurrencySetting.ISetting;
 
 public class CurrencyFactory<T extends ISetting> {
 
-    private T setting;
-
-    public IDoCurrency builder(T setting,String TAG) {
-
-        this.setting = setting;
+    public IDoCurrency builder(T setting) {
         IDoCurrency doCurrency;
-
-        switch (TAG) {
-            case "A":
+        switch (setting.getTAG()) {
+            case APPENDER:
                 doCurrency = new Appender((IAppenderSetting) setting);
                 break;
-            case "B":
+            case EDITOR:
                 doCurrency = new Editor((IEditorSetting) setting);
                 break;
             default:

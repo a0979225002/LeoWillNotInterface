@@ -1,8 +1,8 @@
 package CurrencySetting;
 
 import ICurrencySetting.IEditorSetting;
-
 import java.util.ArrayList;
+import Enum.CurrencyType;
 
 public class EditorSetting implements IEditorSetting {
 
@@ -13,21 +13,40 @@ public class EditorSetting implements IEditorSetting {
     private ArrayList<Integer> div;
     private int mathType;
     private String path;
+    private final CurrencyType TAG;
 
-    public EditorSetting(
-            ArrayList<String> targetCurrency,
-            ArrayList<String> addOrSub,
-            ArrayList<Integer> multi,
-            ArrayList<Integer> div,
-            int mathType,
-            String path){
+    public EditorSetting(){
+        this.TAG = CurrencyType.EDITOR;
+    }
 
+    public EditorSetting setTargetCurrency(ArrayList<String> targetCurrency) {
         this.targetCurrency = targetCurrency;
+        return this;
+    }
+
+    public EditorSetting setAddOrSub(ArrayList<String> addOrSub) {
         this.addOrSub = addOrSub;
+        return this;
+    }
+
+    public EditorSetting setMulti(ArrayList<Integer> multi) {
         this.multi = multi;
+        return this;
+    }
+
+    public EditorSetting setDiv(ArrayList<Integer> div) {
         this.div = div;
+        return this;
+    }
+
+    public EditorSetting setMathType(int mathType) {
         this.mathType = mathType;
+        return this;
+    }
+
+    public EditorSetting setPath(String path) {
         this.path = path;
+        return this;
     }
 
     public ArrayList<String> getTargetCurrency() {
@@ -54,6 +73,10 @@ public class EditorSetting implements IEditorSetting {
         return path;
     }
 
+    public CurrencyType getTAG() {
+        return TAG;
+    }
+
     @Override
     public String toString() {
         return "EditorSetting{" +
@@ -63,6 +86,7 @@ public class EditorSetting implements IEditorSetting {
                 ", div=" + div +
                 ", mathType=" + mathType +
                 ", path='" + path + '\'' +
+                ", TAG='" + TAG + '\'' +
                 '}';
     }
 }

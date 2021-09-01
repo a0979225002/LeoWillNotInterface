@@ -2,6 +2,7 @@ package CurrencySetting;
 
 import ICurrencySetting.IAppenderSetting;
 import java.util.ArrayList;
+import Enum.CurrencyType;
 
 public class AppenderSetting implements IAppenderSetting {
 
@@ -9,12 +10,30 @@ public class AppenderSetting implements IAppenderSetting {
     private ArrayList<String> newCurrency;
     private ArrayList<Integer> ratio;
     private String path;
+    private final CurrencyType TAG;
 
-    public AppenderSetting(ArrayList<String> copyBy, ArrayList<String> newCurrency, ArrayList<Integer> ratio, String path){
+    public AppenderSetting(){
+        this.TAG = CurrencyType.APPENDER;
+    }
+
+    public AppenderSetting setCopyBy(ArrayList<String> copyBy) {
         this.copyBy = copyBy;
+        return this;
+    }
+
+    public AppenderSetting setNewCurrency(ArrayList<String> newCurrency) {
         this.newCurrency = newCurrency;
+        return this;
+    }
+
+    public AppenderSetting setRatio(ArrayList<Integer> ratio) {
         this.ratio = ratio;
+        return this;
+    }
+
+    public AppenderSetting setPath(String path) {
         this.path = path;
+        return this;
     }
 
     public ArrayList<String> getCopyBy() {
@@ -33,6 +52,10 @@ public class AppenderSetting implements IAppenderSetting {
         return path;
     }
 
+    public CurrencyType getTAG() {
+        return TAG;
+    }
+
     @Override
     public String toString() {
         return "AppenderSetting{" +
@@ -40,6 +63,7 @@ public class AppenderSetting implements IAppenderSetting {
                 ", newCurrency=" + newCurrency +
                 ", ratio=" + ratio +
                 ", path='" + path + '\'' +
+                ", TAG='" + TAG + '\'' +
                 '}';
     }
 }
